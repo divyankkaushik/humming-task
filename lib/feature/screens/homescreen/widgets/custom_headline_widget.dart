@@ -29,8 +29,8 @@ class CustomHeadlineWidget extends StatelessWidget {
           Row(
             children: [
               Container(
-                width: size.width / 3,
-                height: size.width / 3,
+                width: size.width / 3.2,
+                height: size.width / 2.9,
                 decoration: BoxDecoration(
                     image: DecorationImage(
                       fit: BoxFit.fill,
@@ -52,7 +52,7 @@ class CustomHeadlineWidget extends StatelessWidget {
                     Text(
                       "This is Heading of the reality news this and go on",
                       style: TextStyle(
-                          fontWeight: FontWeight.w700, fontSize: 18.0),
+                          fontWeight: FontWeight.w700, fontSize: 16.0),
                     ),
                     SizedBox(
                       height: 5.0,
@@ -68,27 +68,22 @@ class CustomHeadlineWidget extends StatelessWidget {
                       height: 5.0,
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Icon(
                           Icons.calendar_today,
                           color: Colors.grey,
                           size: 20.0,
                         ),
-                        SizedBox(
-                          width: 5.0,
-                        ),
                         Text(
                           "03-03-2021",
                           style: TextStyle(
-                            fontSize: 16.0,
+                            fontSize: 14.0,
                             color: Colors.grey,
                           ),
                         ),
-                        SizedBox(
-                          width: 5.0,
-                        ),
                         Container(
-                          width: 70.0,
+                          width: size.width / 6.0,
                           height: 20.0,
                           color: Colors.orange[900],
                           child: Center(
@@ -97,11 +92,9 @@ class CustomHeadlineWidget extends StatelessWidget {
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w700),
+                              overflow: TextOverflow.ellipsis,
                             ),
                           ),
-                        ),
-                        SizedBox(
-                          width: 5.0,
                         ),
                         Icon(
                           Icons.bookmark_border,

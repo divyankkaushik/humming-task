@@ -20,7 +20,7 @@ class CustomHeadlineWidget extends StatelessWidget {
           Row(
             children: [
               Container(
-                width: size.width / 3,
+                width: size.width / 3.2,
                 height: size.height / 11,
                 decoration: BoxDecoration(
                   image: DecorationImage(
@@ -49,14 +49,12 @@ class CustomHeadlineWidget extends StatelessWidget {
                       height: 10.0,
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Icon(
                           Icons.calendar_today,
                           color: Colors.grey,
                           size: 20.0,
-                        ),
-                        SizedBox(
-                          width: 5.0,
                         ),
                         Text(
                           "03-03-2021",
@@ -65,11 +63,8 @@ class CustomHeadlineWidget extends StatelessWidget {
                             color: Colors.grey,
                           ),
                         ),
-                        SizedBox(
-                          width: 5.0,
-                        ),
                         Container(
-                          width: 90.0,
+                          width: size.width / 5,
                           height: 20.0,
                           color: Colors.orange[900],
                           child: Center(

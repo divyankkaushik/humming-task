@@ -1,6 +1,5 @@
 import 'package:humming_task/feature/screens/videosscreen/widgets/widget.dart';
 
-
 class VideosScreen extends StatefulWidget {
   @override
   _VideosScreenState createState() => _VideosScreenState();
@@ -41,7 +40,7 @@ class _VideosScreenState extends State<VideosScreen> {
         child: Column(
           children: [
             SizedBox(
-              height: 10.0,
+              height: 20.0,
             ),
             Align(
               alignment: Alignment.center,
@@ -54,15 +53,13 @@ class _VideosScreenState extends State<VideosScreen> {
               ),
             ),
             SizedBox(
-              height: 10.0,
+              height: 20.0,
             ),
             Container(
               height: 200,
               width: double.infinity,
               color: Colors.grey[300],
-              child: Container(
-                height: 190,
-                child: FlickVideoPlayer(flickManager: flickManager)),
+              child: FlickVideoPlayer(flickManager: flickManager),
             ),
             SizedBox(
               height: 20.0,
@@ -73,7 +70,7 @@ class _VideosScreenState extends State<VideosScreen> {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "This is Heading of the reality news this and go on",
-                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16.0),
+                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 17.0),
                 ),
               ),
             ),
