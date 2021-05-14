@@ -45,7 +45,7 @@ class CustomHeadlineWidget extends StatelessWidget {
                 width: 15.0,
               ),
               Container(
-                width: size.width / 1.82,
+                width: size.width / 1.83,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

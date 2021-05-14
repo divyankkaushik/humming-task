@@ -1,6 +1,5 @@
-import 'package:humming_task/feature/screens/videosscreen/widgets/custom_headline_widget.dart';
 import 'package:humming_task/feature/screens/videosscreen/widgets/widget.dart';
-import 'package:video_player/video_player.dart';
+
 
 class VideosScreen extends StatefulWidget {
   @override
@@ -8,8 +7,7 @@ class VideosScreen extends StatefulWidget {
 }
 
 class _VideosScreenState extends State<VideosScreen> {
-  VideoPlayerController _controller;
-  Future<void> _initializeVideoPlayerFuture;
+  FlickManager flickManager;
 
   final List<String> imageUrl = [
     "https://static.toiimg.com/thumb/imgsize-127241,msid-82594356,width-400,resizemode-4/82594356.jpg",
@@ -20,11 +18,16 @@ class _VideosScreenState extends State<VideosScreen> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.network(
-      'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4',
-    )..initialize().then((_) => _controller.play());
+    flickManager = FlickManager(
+      videoPlayerController: VideoPlayerController.network(
+          "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4"),
+    );
+  }
 
-    _initializeVideoPlayerFuture = _controller.initialize();
+  @override
+  void dispose() {
+    flickManager.dispose();
+    super.dispose();
   }
 
   @override
@@ -57,25 +60,9 @@ class _VideosScreenState extends State<VideosScreen> {
               height: 200,
               width: double.infinity,
               color: Colors.grey[300],
-              child: Center(
-                  child: FutureBuilder(
-                future: _initializeVideoPlayerFuture,
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.done) {
-                    // If the VideoPlayerController has finished initialization, use
-                    // the data it provides to limit the aspect ratio of the VideoPlayer.
-                    return AspectRatio(
-                      aspectRatio: _controller.value.aspectRatio,
-                      // Use the VideoPlayer widget to display the video.
-                      child: VideoPlayer(_controller),
-                    );
-                  } else {
-                    // If the VideoPlayerController is still initializing, show a
-                    // loading spinner.
-                    return Center(child: CircularProgressIndicator());
-                  }
-                },
-              )),
+              child: Container(
+                height: 190,
+                child: FlickVideoPlayer(flickManager: flickManager)),
             ),
             SizedBox(
               height: 20.0,
@@ -165,11 +152,5 @@ class _VideosScreenState extends State<VideosScreen> {
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _controller.dispose();
   }
 }
